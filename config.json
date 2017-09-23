@@ -1,0 +1,67 @@
+{
+	"docs": {
+		"src": "_source/docs/_book/**.*",
+		"dest": "public/docs/"
+	},
+	"images": {
+		"src": "_source/assets/img/**/*.{gif,jpg,jpeg,png,svg}",
+		"dest": "public/assets/img"
+	},
+	"vendorJS": {
+		"src": "_source/assets/js/vendor/*.js",
+		"dest": "public/assets/js/vendor"
+	},
+	"humansTXT": {
+		"src": "_source/humans.txt",
+		"dest": "public"
+	},
+	"templates": {
+		"src": [
+			"_source/templates/**/*.pug",
+			"!_source/templates/partials/*.pug",
+			"!_source/templates/layouts/*.pug"
+		],
+		"dest": "public"
+	},
+	"styles": {
+		"src": "_source/scss/*.s*ss",
+		"dest": "public/assets/css"
+	},
+	"plugins": {
+		"src": [
+			"_source/js/plugins/_plugins.js"
+		],
+		"dest": "public/assets/js/"
+	},
+	"scripts": {
+		"src": [
+			"_source/js/_sn.js",
+			"_source/js/main.js"
+		],
+		"dest": "public/assets/js/"
+	},
+	"watch": {
+		"images": [
+			"_source/assets/img/**/*.{gif,jpg,jpeg,png,svg}"
+		],
+		"vendorJS": [
+			"_source/assets/js/vendor/*.js"
+		],
+		"humansTXT": [
+			"_source/humans.txt"
+		],
+		"scripts": [
+			"_source/js/**/*.js"
+		],
+		"styles": [
+			"_source/scss/**/*.{scss,sass,css}"
+		],
+		"templates": [
+			"_source/templates/**/*.pug"
+		],
+		"html": [
+			"public/**/*.html",
+			"!public/assets"
+		]
+	}
+}
