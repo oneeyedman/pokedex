@@ -2,7 +2,8 @@
  * Incializamos el objeto PIKA
  */
 PIKA.init = function() {
-	PIKA.ajax.init();
+	PIKA.cache.init();
+	PIKA.data.init();
 }
 
 

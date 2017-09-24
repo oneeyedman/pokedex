@@ -40,7 +40,8 @@
 	"scripts": {
 		"src": [
 			"_source/js/_pika.js",
-			"_source/js/_pika.ajax.js",
+			"_source/js/_pika.cache.js",
+			"_source/js/_pika.data.js",
 			"_source/js/main.js"
 		],
 		"dest": "public/assets/js/"

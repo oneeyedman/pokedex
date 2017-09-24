@@ -3,103 +3,103 @@
 	"previous": null,
 	"results": [ {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/1\/",
-		"file": "1.json",
+		"file": "data/1.json",
 		"name": "bulbasaur"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/2\/",
-		"file": "2.json",
+		"file": "data/2.json",
 		"name": "ivysaur"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/3\/",
-		"file": "3.json",
+		"file": "data/3.json",
 		"name": "venusaur"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/4\/",
-		"file": "4.json",
+		"file": "data/4.json",
 		"name": "charmander"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/5\/",
-		"file": "5.json",
+		"file": "data/5.json",
 		"name": "charmeleon"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/6\/",
-		"file": "6.json",
+		"file": "data/6.json",
 		"name": "charizard"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/7\/",
-		"file": "7.json",
+		"file": "data/7.json",
 		"name": "squirtle"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/8\/",
-		"file": "8.json",
+		"file": "data/8.json",
 		"name": "wartortle"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/9\/",
-		"file": "9.json",
+		"file": "data/9.json",
 		"name": "blastoise"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/10\/",
-		"file": "10.json",
+		"file": "data/10.json",
 		"name": "caterpie"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/11\/",
-		"file": "11.json",
+		"file": "data/11.json",
 		"name": "metapod"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/12\/",
-		"file": "12.json",
+		"file": "data/12.json",
 		"name": "butterfree"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/13\/",
-		"file": "13.json",
+		"file": "data/13.json",
 		"name": "weedle"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/14\/",
-		"file": "14.json",
+		"file": "data/14.json",
 		"name": "kakuna"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/15\/",
-		"file": "15.json",
+		"file": "data/15.json",
 		"name": "beedrill"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/16\/",
-		"file": "16.json",
+		"file": "data/16.json",
 		"name": "pidgey"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/17\/",
-		"file": "17.json",
+		"file": "data/17.json",
 		"name": "pidgeotto"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/18\/",
-		"file": "18.json",
+		"file": "data/18.json",
 		"name": "pidgeot"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/19\/",
-		"file": "19.json",
+		"file": "data/19.json",
 		"name": "rattata"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/20\/",
-		"file": "20.json",
+		"file": "data/20.json",
 		"name": "raticate"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/21\/",
-		"file": "21.json",
+		"file": "data/21.json",
 		"name": "spearow"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/22\/",
-		"file": "22.json",
+		"file": "data/22.json",
 		"name": "fearow"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/23\/",
-		"file": "23.json",
+		"file": "data/23.json",
 		"name": "ekans"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/24\/",
-		"file": "24.json",
+		"file": "data/24.json",
 		"name": "arbok"
 	}, {
 		"url": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/25\/",
-		"file": "25.json",
+		"file": "data/25.json",
 		"name": "pikachu"
 	} ],
 	"next": "https:\/\/pokeapi.co\/api\/v2\/pokemon\/?limit=26&offset=26"
