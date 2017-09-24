@@ -1,0 +1,57 @@
+.page__footer {
+	bottom: 0;
+	height: rem(50);
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+	z-index: index($levels, footer);
+	&::before,
+	&::after {
+		background: $color_red;
+		border-radius: 50%;
+		content: '';
+		height: rem(100);
+		position: absolute;
+		top: 0;
+		width: rem(100);
+	}
+	&::before {
+		left: rem(-50);
+	}
+	&::after {
+		right: rem(-50);
+	}
+}
+
+@include mq(768) {
+	.page__footer {
+		height: rem(75);
+		&::before,
+		&::after {
+			height: rem(150);
+			width: rem(150);
+		}
+		&::before {
+			left: rem(-75);
+		}
+		&::after {
+			right: rem(-75);
+		}
+	}
+}
+@include mq(1200) {
+	.page__footer {
+		height: rem(100);
+		&::before,
+		&::after {
+			height: rem(200);
+			width: rem(200);
+		}
+		&::before {
+			left: rem(-100);
+		}
+		&::after {
+			right: rem(-100);
+		}
+	}
+}

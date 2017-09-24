@@ -1,0 +1,137 @@
+// > LIST
+.pokemon__list-wrapper {
+	margin: rem(65) auto rem(100);
+	width: 90%;
+
+	@include mq(572) {
+		width: rem(424);
+	}
+	@include mq(808) {
+		width: 90%;
+		max-width: rem(1090);
+	}
+}
+.pokemon__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 rem(-10);
+
+	@extend %unlist;
+}
+.pokemon__list-warning {
+	border: 3px solid rgba($color_white, .5);
+	padding: rem(15);
+	border-radius: 20px;
+	text-align: center;
+	font-weight: $font_medium;
+	font-size: 1.5em;
+	max-width: rem(250);
+	margin: 0 auto;
+	@include mq(500, min-height) {
+		margin-top: rem(100);
+	}
+	@include mq(800, min-height) {
+		margin-top: rem(200);
+	}
+}
+.pokemon__list-warning-icon {
+	font-size: 3em;
+	display: block;
+}
+
+
+
+
+
+// >> Cards
+.pokemon__item {
+	background: $color_white;
+	border: 1px solid mix($color_white, grey, 50%);
+	border-radius: 2px;
+	box-shadow: 0 0 15px rgba( mix($color_brown, #ff99cc, 75%), .25);
+	display: none;
+	margin: rem(10) rem(10);
+	overflow: hidden;
+	width: rem(200);
+}
+.pokemon__item--pending {
+	.pokemon__pic {
+		background: pink;
+	}
+}
+.pokemon__item--error {}
+
+
+
+
+// >> Data
+.pokemon__pic {
+	background-color: mix($color_white, grey, 75%);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: rem(120);
+}
+
+.pokemon__info {
+	padding: rem(15);
+	position: relative;
+
+	@extend %unlist;
+}
+.pokemon__info-id {
+	background: rgba($color_brown, .1);
+	bottom: 100%;
+	color: rgba($color_brown, .75);
+	font-size: rem(11);
+	height: rem(20);
+	left: 0;
+	line-height: rem(20);
+	position: absolute;
+	text-align: center;
+	width: rem(45);
+	font-weight: 500;
+}
+.pokemon__info-name {
+	color: $color_black;
+	font-size: rem(18);
+	font-weight: $font_medium;
+	text-transform: capitalize;
+}
+.pokemon__info-evolution {
+	padding-left: rem(6);
+	position: relative;
+	&::before {
+		background: $color_brown;
+		content: '';
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: rem(3);
+	}
+}
+.pokemon__info-evolution-label {
+	display: block;
+	font-size: rem(12);
+	margin: rem(5) 0 0;
+}
+.pokemon__info-evolution-name {
+	color: mix($color_black, $color_brown);
+	font-size: rem(18);
+}
+.types {
+	margin: 0 rem(-2);
+
+	@extend %unlist;
+}
+.type__item {
+	border: 1px solid rgba($color_brown, .25);
+	border-radius: 5px;
+	display: inline-block;
+	font-size: rem(10);
+	line-height: rem(15);
+	margin: rem(2);
+	padding: 0 rem(3);
+	text-transform: uppercase;
+}

@@ -6,6 +6,9 @@ $color_focus_alt: yellow;
 $color_white: #fff;
 $color_black: #000;
 $color_blue: #0077cc;
+$color_yellow: #ffe62d;
+$color_red: #e92929;
+$color_brown: #5c3613;
 
 $color_title: $color_black;
 $color_text: $color_black;
@@ -24,16 +27,15 @@ $dim_margin: 20;
 
 // Fonts
 $font_fallback: arial, sans-serif;
-$font_text: 'Verdana', $font_fallback;
+$font_text: 'Ubuntu', $font_fallback;
+$font_data:  'Ubuntu Condensed', $font_fallback;
 $font_size: 16;
 $font_line_height: 130%;
-$font_thin: 100;
+
 $font_light: 300;
 $font_regular: 400;
 $font_medium: 500;
-$font_semibold: 600;
-$font_bold: 700;
-$font_black: 900;
+
 
 
 
@@ -54,7 +56,7 @@ $theme: '../img/layout/';
 
 
 // Levels
-$levels: background, content, header, menu, cookies;
+$levels: background, footer, content, header;
 
 
 

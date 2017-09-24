@@ -8,10 +8,9 @@ PIKA.data = {
 	init: function(){
 
 		// > Variables
-		var numberOfPokemons = 25;
+		var numberOfPokemons;
 		var pokemonBaseURL = 'data/pokemon.json';
 		var pokemonList;
-
 		var $pokemonList = PIKA.cache.$body.find('.js__pokemon-list-wrapper');
 
 
@@ -35,6 +34,7 @@ PIKA.data = {
 				pokemonList = data;
 
 				// Pinta los huecos
+				numberOfPokemons = pokemonList.results.length;
 				addPokemonPlaceholders( pokemonList.results.length );
 
 				// Pide pokemons
@@ -42,7 +42,8 @@ PIKA.data = {
 
 			})
 			.fail(function() {
-				// Todo mal: pendiente
+				// Todo mal
+				showMainWarning();
 			});
 		};
 
@@ -107,39 +108,58 @@ PIKA.data = {
 				// evoluciona de...
 				getEvolutionOf(pokemonID);
 
-			})
-			.fail(function() {
-				// si falla, pones error: pendiente
 			});
 
 
 
 			// Pide el siguiente pokemon, si se puede, claro.
 			if (pokeIndex < (numberOfPokemons - 1) ) {
-				getPokemonInfo( pokeIndex + 1 );
+					getPokemonInfo( pokeIndex + 1 );
 			} else {
-				showFilterBar();
+
+				if ($pokemonList.find('.js__pokemon-item').length > 0) {
+					// Si hay pokemons cargados miro si al menos hay 2 antes de activar los filtros
+					if ($pokemonList.find('.js__pokemon-item').length > 1) {
+						showFilterBar();
+					}
+				} else {
+					// Si no, muestro el aviso de que no hay pokemons
+					showMainWarning()
+				}
+
+
+
 			}
 		};
 
 
+		/**
+		 * Escribe cada card de pokemon
+		 * @param  {integer} index Elemento que vamos a escribir
+		 * @param  {string} id    Id del pokemon
+		 * @param  {string} img   Ruta de la imagen del pokemon
+		 * @param  {Array} types  Tipo(s)
+		 */
 		var writePokemon = function(index, id, img, types) {
 			var typeList = '';
 
 			$item = $pokemonList.find('.js__pokemon-item').eq(index);
 
 			$item.find('.pokemon__pic').attr('style', 'background-image:url(' + img + ')');
-			$item.find('.pokemon__info-id').text(id);
+			$item.find('.pokemon__info-id').text('ID / ' + id);
 			$.each(types, function(index, el) {
 				typeList += '<li class="type__item">' + types[index] + '</li>'
 			});
 
 			$item.find('.pokemon__info-types .types').html(typeList);
 			$item.removeClass('pokemon__item--pending').fadeIn(1000);
-
 		};
 
 
+		/**
+		 * Carga la información sobre la evolución de un pokemon.
+		 * @param  {integer} id ID del pokemon
+		 */
 		var getEvolutionOf = function( id ) {
 			var path = 'data/species-' + id + '.json';
 
@@ -150,24 +170,28 @@ PIKA.data = {
 			})
 			.done(function(data) {
 				var species = data;
-
 				if (species.evolves_from_species != null) {
+					// Solo la escribe si ha conseguido leerla y hay información
 					updatePokemonEvolutionInfo(species.id, species.evolves_from_species.name);
 				}
-
-			})
-			.fail(function() {
-				// pendiente
 			});
 		};
 
 
+		/**
+		 * Actualiza la información sobre la evolución de un pokemon en la card correspondiente
+		 * @param  {integer} id   ID del pokemon
+		 * @param  {string} name Nombre del pokemon del que procede
+		 */
 		var updatePokemonEvolutionInfo = function(id, name) {
 			$item = $pokemonList.find('.js__pokemon-item').eq( (id-1) );
-			$item.find('.pokemon__info-evolution').text('Evoluciona de: ' + name);
+			$item.find('.pokemon__info-evolution').html('<span class="pokemon__info-evolution-label">Evoluciona de: </span><span class="pokemon__info-evolution-name">' + name + '</span>');
 		};
 
 
+		/**
+		 * Muestra y activa el filtro de la página de pokemons
+		 */
 		var showFilterBar =  function() {
 			console.log('> Muestra el campo de filtro');
 			$filter =  PIKA.cache.$body.find('.js__filter-bar');
@@ -195,8 +219,19 @@ PIKA.data = {
 
 
 
-		// > Al turrón (si existe el contenedor de pokemons, empezamos)
-		getThemAll(pokemonBaseURL);
+		/**
+		 * Muestra un aviso si no se pudo cargar nada
+		 */
+		var showMainWarning = function() {
+			var mainWarning = '<div class="pokemon__list-warning"><span class="pokemon__list-warning-icon">🙈</span> No se ha podido cargar la lista de pokemons</div>';
+			$pokemonList.html(mainWarning);
+		};
 
+
+
+		// > Al turrón (si existe el contenedor de pokemons, empezamos)
+		if ($pokemonList.length) {
+			getThemAll(pokemonBaseURL);
+		}
 	}
 };

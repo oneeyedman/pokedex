@@ -1,0 +1,13 @@
+body {
+	background: $color_yellow;
+	margin: 0;
+}
+
+.wrapper {
+	margin: 0 rem(50);
+}
+.page__main {
+	position: relative;
+	z-index: index($levels, content);
+	z-index: index;
+}

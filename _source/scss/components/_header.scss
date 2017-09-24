@@ -1,0 +1,89 @@
+.page__header {
+	height: rem(80);
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: index($levels, header);
+	&::before,
+	&::after {
+		background: $color_black;
+		content: '';
+		height: rem(50);
+		position: absolute;
+		top: 0;
+		transform: translateY(-50%) rotate(45deg);
+		width: rem(50);
+	}
+	&::before {
+		left: rem(-25);
+	}
+	&::after {
+		right: rem(-25);
+	}
+}
+
+@include mq(768) {
+	.page__header {
+		height: rem(80);
+		&::before,
+		&::after {
+			height: rem(80);
+			width: rem(80);
+		}
+		&::before {
+			left: rem(-40);
+		}
+		&::after {
+			right: rem(-40);
+		}
+	}
+}
+
+.filter-bar {
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: rem(15);
+	transform: translateY(0);
+	transition: transform ease 1s;
+	width: 100%;
+}
+.filter-bar--hidden {
+	transform: translateY(-200%);
+}
+.filter-bar__field {
+	appearance: none;
+	background: rgba($color_white, .9);
+	border: 0;
+	box-shadow: 0 0 17px rgba($color_brown, .3);
+	font-family: inherit;
+	font-size: 1.5em;
+	height: rem(40);
+	line-height: rem(40);
+	outline: none;
+	text-align: center;
+	width: 70%;
+	max-width: rem(646);
+}
+
+::-webkit-input-placeholder {
+  color: mix($color_white, grey);
+	font-size: .7em;
+	font-weight: $font_light;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: mix($color_white, grey);
+	font-size: .7em;
+	font-weight: $font_light;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: mix($color_white, grey);
+	font-size: .7em;
+	font-weight: $font_light;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: mix($color_white, grey);
+	font-size: .7em;
+	font-weight: $font_light;
+}

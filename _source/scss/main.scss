@@ -23,15 +23,9 @@
 @import 'components/buttons';
 @import 'components/navigation';
 @import 'components/forms';
-
-
-
-
-
-// >> Layout
-@import 'layout/layout';
-@import 'layout/header';
-@import 'layout/footer';
+@import 'components/layout';
+@import 'components/header';
+@import 'components/footer';
 
 
 
@@ -39,59 +33,3 @@
 
 // >> Pages
 @import 'pages/home';
-
-.pokemon__list-wrapper {
-	margin: 0 auto;
-	width: 70%;
-}
-.pokemon__list {
-	@extend %unlist;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	margin: 0 rem(-10);
-}
-
-.pokemon__item {
-	border: 1px solid mix(white,grey, 70%);
-	width: rem(96);
-	margin: rem(10) rem(10);
-	width: rem(96);
-	display: none;
-}
-.pokemon__item--pending {
-	.pokemon__pic {
-		background: pink;
-	}
-}
-
-.pokemon__pic {
-	height: rem(96);
-}
-
-.pokemon__info {
-	@extend %unlist;
-	padding: rem(5);
-}
-.pokemon__info-name {
-	text-transform: capitalize;
-}
-
-
-.filter-bar {
-	background: pink;
-	position: fixed;
-	left: 0;
-	top: 0;
-	text-align: center;
-	width: 100%;
-	transition: transform ease 1s;
-	transform: translateY(0);
-}
-.filter-bar--hidden {
-	transform: translateY(-100%);
-}
-.filter-bar__field {
-	font-size: 2em;
-	width: 80%;
-}
