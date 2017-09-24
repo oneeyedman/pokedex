@@ -1,6 +1,6 @@
 # Pokedex
 
-El resultado del ejercicio se puede ver en https://oneeyedman.github.io/pokedex/public/
+El resultado del ejercicio se puede ver en [https://oneeyedman.github.io/pokedex/public/](https://oneeyedman.github.io/pokedex/public/).
 
 En cualquier caso se puede clonar/descargar el repositorio, instalar las dependencias con `$ npm install` y ejecutar con `$ gulp go`.
 
