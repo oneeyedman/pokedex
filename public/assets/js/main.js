@@ -1,4 +1,24 @@
 /**
+ * PIKA Object
+ * @type {Object}
+ */
+var PIKA = {};
+
+/**
+ * PIKA.Cache
+ * Cachea elementos comunes
+ *
+ * @type {Object}
+ */
+PIKA.cache = {
+	init : function(){
+		PIKA.cache.$window = $(window);
+		PIKA.cache.$html = $('html');
+		PIKA.cache.$body = PIKA.cache.$html.find('body');
+	}
+};
+
+/**
  * PIKA.data
  * Gestiona la petición de pokemons
  *
@@ -234,3 +254,17 @@ PIKA.data = {
 		}
 	}
 };
+
+/**
+ * Incializamos el objeto PIKA
+ */
+PIKA.init = function() {
+	PIKA.cache.init();
+	PIKA.data.init();
+}
+
+
+// Si el DOM está listo, empezamos.
+$(function() {
+	PIKA.init();
+});

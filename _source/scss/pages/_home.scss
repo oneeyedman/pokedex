@@ -7,8 +7,8 @@
 		width: rem(424);
 	}
 	@include mq(808) {
-		width: 90%;
 		max-width: rem(1090);
+		width: 90%;
 	}
 }
 .pokemon__list {
@@ -21,13 +21,14 @@
 }
 .pokemon__list-warning {
 	border: 3px solid rgba($color_white, .5);
-	padding: rem(15);
 	border-radius: 20px;
-	text-align: center;
-	font-weight: $font_medium;
 	font-size: 1.5em;
-	max-width: rem(250);
+	font-weight: $font_medium;
 	margin: 0 auto;
+	max-width: rem(250);
+	padding: rem(15);
+	text-align: center;
+
 	@include mq(500, min-height) {
 		margin-top: rem(100);
 	}
@@ -36,8 +37,8 @@
 	}
 }
 .pokemon__list-warning-icon {
-	font-size: 3em;
 	display: block;
+	font-size: 3em;
 }
 
 
@@ -60,7 +61,7 @@
 		background: pink;
 	}
 }
-.pokemon__item--error {}
+
 
 
 
@@ -84,19 +85,24 @@
 	bottom: 100%;
 	color: rgba($color_brown, .75);
 	font-size: rem(11);
+	font-weight: 500;
 	height: rem(20);
 	left: 0;
 	line-height: rem(20);
 	position: absolute;
 	text-align: center;
 	width: rem(45);
-	font-weight: 500;
 }
 .pokemon__info-name {
 	color: $color_black;
 	font-size: rem(18);
 	font-weight: $font_medium;
 	text-transform: capitalize;
+	h2 {
+		font-size: inherit;
+		font-weight: inherit;
+		margin: 0;
+	}
 }
 .pokemon__info-evolution {
 	padding-left: rem(6);
@@ -119,6 +125,8 @@
 .pokemon__info-evolution-name {
 	color: mix($color_black, $color_brown);
 	font-size: rem(18);
+	font-weight: inherit;
+	margin: 0;
 }
 .types {
 	margin: 0 rem(-2);
