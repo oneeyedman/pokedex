@@ -80,10 +80,8 @@ PIKA.data = {
 		 * @param  {integer} pokeIndex Contador para las peticiones
 		 */
 		var getPokemonInfo = function( pokeIndex ) {
-			console.log('> ' + pokeIndex);
 
 			var pokemonURL =  pokemonList.results[pokeIndex].file
-			console.log('>> ' + pokemonURL);
 			// pide el pokemon pokeIndex
 			$.ajax({
 				type: 'GET',
@@ -91,21 +89,23 @@ PIKA.data = {
 				data: ''
 			})
 			.done(function(data) {
+				var pokemonID;
 				var pokemonTypes = new Array;
 				var pokemonImg;
 				var pokemonEvolutionOf;
 
-				// Si todo está bien recojo los datos
+				// Recojo los datos
+				pokemonID = data.id;
 				for (var i = 0; i < data.types.length; i++) {
-					console.log('>> tipos: ' + data.types[i].type.name);
 					pokemonTypes.push(data.types[i].type.name);
 				}
-				console.log('>> tipos: ' + data.sprites.front_default);
 				pokemonImg = data.sprites.front_default;
-				// evoluciona de
 
 				// y los pinto
-				writePokemon(pokeIndex, pokemonImg, pokemonTypes);
+				writePokemon(pokeIndex, pokemonID, pokemonImg, pokemonTypes);
+
+				// evoluciona de...
+				getEvolutionOf(pokemonID);
 
 			})
 			.fail(function() {
@@ -117,29 +117,65 @@ PIKA.data = {
 			// Pide el siguiente pokemon, si se puede, claro.
 			if (pokeIndex < (numberOfPokemons - 1) ) {
 				getPokemonInfo( pokeIndex + 1 );
+			} else {
+				showFilterBar();
 			}
 		};
 
 
-		var writePokemon = function(index, img, types) {
+		var writePokemon = function(index, id, img, types) {
 			var typeList = '';
 
 			$item = $pokemonList.find('.js__pokemon-item').eq(index);
 
 			$item.find('.pokemon__pic').attr('style', 'background-image:url(' + img + ')');
-
+			$item.find('.pokemon__info-id').text(id);
 			$.each(types, function(index, el) {
 				typeList += '<li class="type__item">' + types[index] + '</li>'
 			});
 
 			$item.find('.pokemon__info-types .types').html(typeList);
 			$item.removeClass('pokemon__item--pending');
-			$item.addClass('pokemon__item--visible').animate({opacity:1}, 500);
-
 
 		};
 
 
+		var getEvolutionOf = function( id ) {
+			var path = 'data/species-' + id + '.json';
+
+			$.ajax({
+				type: 'GET',
+				url: path,
+				data: ''
+			})
+			.done(function(data) {
+				var species = data;
+
+				if (species.evolves_from_species != null) {
+					updatePokemonEvolutionInfo(species.id, species.evolves_from_species.name);
+				}
+
+
+			})
+			.fail(function() {
+				// pendiente
+			});
+		};
+
+
+		var updatePokemonEvolutionInfo = function(id, name) {
+			$item = $pokemonList.find('.js__pokemon-item').eq( (id-1) );
+			$item.find('.pokemon__info-evolution').text('Evoluciona de: ' + name);
+		};
+
+
+		var showFilterBar =  function() {
+			console.log('> Muestra el campo de filtro');
+			$filter =  PIKA.cache.$body.find('.js__filter-bar');
+			if ($filter.length) {
+				$filter.removeClass('filter-bar--hidden');
+			}
+		};
 
 
 

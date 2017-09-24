@@ -58,7 +58,6 @@
 	margin: rem(10) rem(10);
 	width: rem(96);
 	display: block;
-	opacity: 0;
 }
 .pokemon__item--pending {
 	.pokemon__pic {
@@ -76,4 +75,23 @@
 }
 .pokemon__info-name {
 	text-transform: capitalize;
+}
+
+
+.filter-bar {
+	background: pink;
+	position: fixed;
+	left: 0;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	transition: transform ease 1s;
+	transform: translateY(0);
+}
+.filter-bar--hidden {
+	transform: translateY(-100%);
+}
+.filter-bar__field {
+	font-size: 2em;
+	width: 80%;
 }
