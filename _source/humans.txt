@@ -3,10 +3,19 @@
 
 
 /* TEAM */
-
+  Pixel Juicer: Carlos Mañas
+  Site: spacenomads.com
+  Contact: carlos [at] spacenomads.com
+  Twitter: @oneeyedman
+  Location: Granada / Madrid, Spain
 
 /* THANKS */
-
+  Bea: @chucheria
+  Bonaparte: @bonapartethecat
+  Trece: @trecethecat
 
 /* SITE */
-
+  Standards: HTML5, CSS3
+  Components: Asteroids , jQuery, Gulp, PUG
+  Software: Atom, Spotify
+  Tons of cold brew coffee

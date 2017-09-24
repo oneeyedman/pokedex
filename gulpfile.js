@@ -158,7 +158,7 @@ gulp.task('go', ['default'], function () {
 	gulp.watch(config.watch.vendorJS, ['bs-reload', ['vendor-js']]);
 	gulp.watch(config.watch.humansTXT, ['humansTXT']);
 	gulp.watch(config.watch.styles, ['styles']);
-	gulp.watch(config.watch.scripts, ['scripts', 'plugins']);
+	gulp.watch(config.watch.scripts, ['scripts']);
 	gulp.watch(config.watch.templates, ['templates']);
 	gulp.watch(config.watch.html, ['bs-reload']);
 });
@@ -178,7 +178,7 @@ gulp.task('bs-reload', function () {
 
 // > Generate 'public' folder
 gulp.task('default', ['clean'], function (cb) {
-	runSequence('styles', ['data', 'images', 'vendor-js', 'humansTXT', 'templates', 'plugins', 'scripts'], cb);
+	runSequence('styles', ['data', 'images', 'vendor-js', 'humansTXT', 'templates', 'scripts'], cb);
 });
 
 

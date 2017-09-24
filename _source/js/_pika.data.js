@@ -193,7 +193,6 @@ PIKA.data = {
 		 * Muestra y activa el filtro de la página de pokemons
 		 */
 		var showFilterBar =  function() {
-			console.log('> Muestra el campo de filtro');
 			$filter =  PIKA.cache.$body.find('.js__filter-bar');
 			if ($filter.length) {
 				$filter.removeClass('filter-bar--hidden');
