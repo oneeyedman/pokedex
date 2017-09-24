@@ -9,7 +9,7 @@ PIKA.ajax = {
 
 		// > Variables
 		var numberOfPokemons = 26;
-		var pokemonBaseURL = 'http://pokeapi.co/api/v2/pokemon';
+		var pokemonBaseURL = 'http://pokeapi.co/api/v2/pokemon/';
 		var pokemonList;
 
 		var $body = $('body');
@@ -28,7 +28,12 @@ PIKA.ajax = {
 			$.ajax({
 				type: 'POST',
 				url: pokeURL,
-				data: ''
+				data: '',
+				cors: true,
+				secure: true,
+				headers: {
+					'Access-Control-Allow-Origin': '*'
+				}
 			})
 			.done(function(data){
 
@@ -39,7 +44,7 @@ PIKA.ajax = {
 				addPokemonPlaceholders( pokemonList.results.length );
 
 				// Pide pokemons
-				getPokemonInfo( 0 );
+				//getPokemonInfo( 0 );
 
 			})
 			.fail(function() {
