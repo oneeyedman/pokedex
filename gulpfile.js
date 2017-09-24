@@ -31,14 +31,14 @@ var onError = function (err) {
 
 
 
-/*
-// > Copy Images
-gulp.task('docs', function () {
-	return gulp.src(config.docs.src)
-		.pipe(gulp.dest(config.docs.dest))
-		.pipe(notify({message: '>> ✔︎ Docs', onLast: true}));
+
+// > Copy JSON data
+gulp.task('data', function () {
+	return gulp.src(config.data.src)
+		.pipe(gulp.dest(config.data.dest))
+		.pipe(notify({message: '>> ✔︎ Data', onLast: true}));
 });
-*/
+
 
 
 
@@ -178,7 +178,7 @@ gulp.task('bs-reload', function () {
 
 // > Generate 'public' folder
 gulp.task('default', ['clean'], function (cb) {
-	runSequence('styles', ['images', 'vendor-js', 'humansTXT', 'templates', 'plugins', 'scripts'], cb);
+	runSequence('styles', ['data', 'images', 'vendor-js', 'humansTXT', 'templates', 'plugins', 'scripts'], cb);
 });
 
 

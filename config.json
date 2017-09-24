@@ -3,6 +3,10 @@
 		"src": "_source/docs/_book/**.*",
 		"dest": "public/docs/"
 	},
+	"data": {
+		"src": "_source/data/**.json",
+		"dest": "public/data/"
+	},
 	"images": {
 		"src": "_source/assets/img/**/*.{gif,jpg,jpeg,png,svg}",
 		"dest": "public/assets/img"
