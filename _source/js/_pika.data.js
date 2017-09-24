@@ -135,7 +135,7 @@ PIKA.data = {
 			});
 
 			$item.find('.pokemon__info-types .types').html(typeList);
-			$item.removeClass('pokemon__item--pending');
+			$item.removeClass('pokemon__item--pending').fadeIn(1000);
 
 		};
 
@@ -154,7 +154,6 @@ PIKA.data = {
 				if (species.evolves_from_species != null) {
 					updatePokemonEvolutionInfo(species.id, species.evolves_from_species.name);
 				}
-
 
 			})
 			.fail(function() {
@@ -175,6 +174,22 @@ PIKA.data = {
 			if ($filter.length) {
 				$filter.removeClass('filter-bar--hidden');
 			}
+
+			$filterField = PIKA.cache.$body.find('.js__filter-field');
+			$pokemonItems = PIKA.cache.$body.find('.js__pokemon-item');
+
+			$filterField.on('keyup', function() {
+				var filterString = $(this).val();
+
+				$pokemonItems.each(function(index, el) {
+					if ( $(this).find('.pokemon__info-name').text().indexOf( filterString ) == -1 ) {
+						$(this).fadeOut(400);
+					} else {
+						$(this).fadeIn(200);
+					}
+				});
+
+			});
 		};
 
 

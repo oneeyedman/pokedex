@@ -42,6 +42,7 @@
 			"_source/js/_pika.js",
 			"_source/js/_pika.cache.js",
 			"_source/js/_pika.data.js",
+			"_source/js/_pika.filter.js",
 			"_source/js/main.js"
 		],
 		"dest": "public/assets/js/"
