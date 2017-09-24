@@ -25,27 +25,25 @@ PIKA.ajax = {
 		 * @param  {string} pokeURL url a la que se hace la petición
 		 */
 		var getThemAll = function(pokeURL) {
-
 			$.ajax({
 				type: 'POST',
 				url: pokeURL,
 				data: ''
 			})
 			.done(function(data){
-				pokemonList = data;
 
-				// Muestra los resultados
-				console.log('>> ' +  pokemonList.results.length);
+				// Todo OK
+				pokemonList = data;
 
 				// Pinta los huecos
 				addPokemonPlaceholders( pokemonList.results.length );
 
 				// Pide pokemons
-				getPokemonInfo( 1 );
+				getPokemonInfo( 0 );
 
 			})
 			.fail(function() {
-				// pendiente
+				// Todo mal: pendiente
 			});
 		};
 
@@ -59,15 +57,15 @@ PIKA.ajax = {
 			var id;
 
 			for (var i = 0; i < items; i++) {
-				id = (i+1);
-				pList += '<li class="pokemon__item pokemon__item--' + id + ' js__pokemon-item--' + id + ' pokemon__item--pending">';
+				id = i;
+				pList += '<li class="pokemon__item pokemon__item--' + id + ' js__pokemon-item pokemon__item--pending">';
 
 				pList += '<div class="pokemon__pic"></div>';
 
 				pList += '<ul class="pokemon__info">';
 				pList += '<li class="pokemon__info-id"></li>';
 				pList += '<li class="pokemon__info-name">' + pokemonList.results[i].name + '</li>';
-				pList += '<li class="pokemon__info-type"></li>';
+				pList += '<li class="pokemon__info-types"><ul class="types"></ul></li>';
 				pList += '<li class="pokemon__info-evolution"></li>';
 				pList += '</ul>';
 				pList += '<li>';
@@ -84,9 +82,62 @@ PIKA.ajax = {
 		 */
 		var getPokemonInfo = function( pokeIndex ) {
 			console.log('> ' + pokeIndex);
-			if (pokeIndex < numberOfPokemons ) {
+
+			var pokemonURL =  pokemonList.results[pokeIndex].url
+			console.log('>> ' + pokemonURL);
+			// pide el pokemon pokeIndex
+			$.ajax({
+				type: 'GET',
+				url: pokemonURL,
+				data: ''
+			})
+			.done(function(data) {
+				var pokemonTypes = new Array;
+				var pokemonImg;
+				var pokemonEvolutionOf;
+
+				// Si todo está bien recojo los datos
+				for (var i = 0; i < data.types.length; i++) {
+					console.log('>> tipos: ' + data.types[i].type.name);
+					pokemonTypes.push(data.types[i].type.name);
+				}
+				console.log('>> tipos: ' + data.sprites.front_default);
+				pokemonImg = data.sprites.front_default;
+				// evoluciona de
+
+				// y los pinto
+				writePokemon(pokeIndex, pokemonImg, pokemonTypes);
+
+			})
+			.fail(function() {
+				// si falla, pones error: pendiente
+			});
+
+
+
+			// Pide el siguiente pokemon, si se puede, claro.
+			if (pokeIndex < (numberOfPokemons - 1) ) {
 				getPokemonInfo( pokeIndex + 1 );
 			}
+		};
+
+
+		var writePokemon = function(index, img, types) {
+			var typeList = '';
+
+			$item = $pokemonList.find('.js__pokemon-item').eq(index);
+
+			$item.find('.pokemon__pic').attr('style', 'background-image:url(' + img + ')');
+
+			$.each(types, function(index, el) {
+				typeList += '<li class="type__item">' + types[index] + '</li>'
+			});
+
+			$item.find('.pokemon__info-types .types').html(typeList);
+			$item.removeClass('pokemon__item--pending');
+			$item.addClass('pokemon__item--visible').animate('opacity',1, 500);
+
+
 		};
 
 
@@ -94,7 +145,7 @@ PIKA.ajax = {
 
 
 
-		// > Si existe el contenedor de pokemons, empezamos.
+		// > Al turrón (si existe el contenedor de pokemons, empezamos)
 		getThemAll(pokemonBaseURL + '?limit='+numberOfPokemons);
 
 	}
