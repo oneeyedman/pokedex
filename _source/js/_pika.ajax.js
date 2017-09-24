@@ -9,7 +9,7 @@ PIKA.ajax = {
 
 		// > Variables
 		var numberOfPokemons = 26;
-		var pokemonBaseURL = 'http://pokeapi.co/api/v2/pokemon/';
+		var pokemonBaseURL = 'https://pokeapi.co/api/v2/pokemon/';
 		var pokemonList;
 
 		var $body = $('body');
@@ -26,14 +26,9 @@ PIKA.ajax = {
 		 */
 		var getThemAll = function(pokeURL) {
 			$.ajax({
-				type: 'POST',
+				type: 'GET',
 				url: pokeURL,
-				data: '',
-				cors: true,
-				secure: true,
-				headers: {
-					'Access-Control-Allow-Origin': '*'
-				}
+				data: ''
 			})
 			.done(function(data){
 
@@ -44,7 +39,7 @@ PIKA.ajax = {
 				addPokemonPlaceholders( pokemonList.results.length );
 
 				// Pide pokemons
-				//getPokemonInfo( 0 );
+				getPokemonInfo( 0 );
 
 			})
 			.fail(function() {
@@ -140,7 +135,7 @@ PIKA.ajax = {
 
 			$item.find('.pokemon__info-types .types').html(typeList);
 			$item.removeClass('pokemon__item--pending');
-			$item.addClass('pokemon__item--visible').animate('opacity',1, 500);
+			$item.addClass('pokemon__item--visible').animate({opacity:1}, 500);
 
 
 		};
