@@ -1,37 +1,16 @@
 {
-	"name": "Asteroids",
-	"version": "1.1.2",
-	"description": "Space Nomads' web starter kit",
-	"main": "gulpfile.js",
-	"dependencies": {},
-	"devDependencies": {},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+ssh://git@github.com:spacenomads/Asteroids.git"
-	},
-	"author": "Space Nomads",
-	"license": "ISC",
-	"homepage": "https://github.com/spacenomads/Asteroids",
-	"dependencies": {
-		"browser-sync": "*",
-		"del": "*",
-		"gulp-autoprefixer": "*",
-		"gulp-cached": "*",
-		"gulp-clean-css": "*",
-		"gulp-combine-mq": "*",
-		"gulp-concat": "*",
-		"gulp-notify": "*",
-		"gulp-plumber": "*",
-		"gulp-pug": "*",
-		"gulp-rename": "*",
-		"gulp-sass": "*",
-		"gulp-sourcemaps": "*",
-		"gulp-uglify": "*",
-		"gulp-util": "*",
-		"gulp": "*",
-		"run-sequence": "*"
-	}
+  "name": "poke",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
