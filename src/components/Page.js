@@ -1,7 +1,24 @@
 import React from 'react';
-
+import Card from './Card';
 
 class Page extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			pokemon: {}
+		};
+
+		const data = fetch('http://pokeapi.salestock.net/api/v2/pokemon/1', {})
+		.then(response => response.json())
+		.then(json => {
+			console.log(json);
+			this.setState({
+				pokemon: json
+			});
+		});
+	}
+
   render() {
     return (
       <div className="page">
@@ -15,20 +32,7 @@ class Page extends React.Component {
             <div className="wrapper">
               <div className="pokemon__list-wrapper js__pokemon-list-wrapper">
                 <ul className="pokemon__list">
-                  <li className={`pokemon__item pokemon__item--1 js__pokemon-item pokemon__item--pending`}>
-                    <div className="pokemon__pic"></div>
-
-                    <ul className="pokemon__info">
-                      <li className="pokemon__info-id">1</li>
-                      <li className="pokemon__info-name">
-                        <h2>Pikachu</h2>
-                      </li>
-                      <li className="pokemon__info-types">
-                        <ul className="types"></ul>
-                      </li>
-                      <li className="pokemon__info-evolution"></li>
-                    </ul>
-                  </li>
+                  <Card criatura={this.state.pokemon} />
                 </ul>
               </div>
               </div>
