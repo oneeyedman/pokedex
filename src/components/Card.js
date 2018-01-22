@@ -4,7 +4,7 @@ class Card extends React.Component {
 	render() {
 		return (
 		<li className={`pokemon__item pokemon__item--1 js__pokemon-item pokemon__item--pending`}>
-			<div className="pokemon__pic"></div>
+			<div className="pokemon__pic" style={{backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.props.criatura.id}.png)`}}></div>
 
 			<ul className="pokemon__info">
 				<li className="pokemon__info-id">{this.props.criatura.id}</li>
